@@ -15,8 +15,8 @@ Check out [quick-apps.com/audio](http://quick-apps.com/audio) to see how you can
 
 ## Overview of the project
 
-ffmpeg.js 	-- ffmpeg port with libraries
-site		-- example audio converter site
+ * ffmpeg.js 	-- ffmpeg port with libraries
+ * site		-- example audio converter site
 
 To build go to ffmpeg.js directory and run (assuming that you have emscripten configured):
 ./emcc-audio-build.sh
