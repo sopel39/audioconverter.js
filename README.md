@@ -23,7 +23,7 @@ To build go to ffmpeg.js directory and run (assuming that you have emscripten co
 
 ## Contact
 
-Check out my [blog][http://karolsobczak.com].
+Check out my [blog](http://karolsobczak.com).
 
 ## Links
 
