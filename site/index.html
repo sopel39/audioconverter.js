@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="https://github.com/sopel39/audioconverter.js">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,13 +60,31 @@
                 </div>
                 <div>
                     <br>
+                    <p class="lead">3. Select bitrate:</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default" name="bitrateBtn">
+                            <input type="radio" name="bitrate" value="96k">
+                                96k </label>
+                        <label class="btn btn-default" name="bitrateBtn">
+                            <input type="radio" name="bitrate" value="128k">
+                                128k </label>
+                        <label class="btn btn-default active" name="bitrateBtn">
+                            <input type="radio" name="bitrate" value="192k" checked>
+                                192k </label>
+                        <label class="btn btn-default" name="bitrateBtn">
+                            <input type="radio" name="bitrate" value="320k">
+                                320k </label>
+                    </div>
+                </div>
+                <div>
+                    <br>
                     <div class="quick-center">
-                        <p class="lead quick-left">3. Convert audio file:&nbsp;&nbsp;</p><button id="convert" type="button" class="btn btn-default" disabled="true">Convert</button>
+                        <p class="lead quick-left">4. Convert audio file:&nbsp;&nbsp;</p><button id="convert" type="button" class="btn btn-default" disabled="true">Convert</button>
                         <img id="converting" class="quick-hidden" src="loader.gif"> <b id="progress" class="quick-hidden"></b> <b id="error" class="quick-hidden">Error during conversion</b>
                     </div>
                 </div>
                 <div id="download" class="quick-hidden">
-                    <p class="lead">4. Save converted <a id="downloadLink" class="lead">audio file</a></p>
+                    <p class="lead">5. Save converted <a id="downloadLink" class="lead">audio file</a></p>
                 </div>
             </div>
         </div>
@@ -85,8 +103,8 @@
             // create ffmpeg worker
             function getFFMPEGWorker() {
                 // regexps for extracting time from ffmpeg logs
-                var durationRegexp = /Duration: (.*?), start:/
-                var timeRegexp = /time=(.*?) bitrate/;
+                var durationRegexp = /Duration: (.*?), /
+                var timeRegexp = /time=(.*?) /;
                 var duration;
 
                 var ffmpegWorker = new Worker('worker.js');
@@ -159,6 +177,9 @@
                 var arguments = [];
                 arguments.push("-i");
                 arguments.push(fileName);
+                                
+                arguments.push("-b:a");
+                arguments.push(getBitrate());
 
                 switch (getOutFormat()) {
                     case "mp3":
@@ -201,7 +222,11 @@
             function getOutFormat() {
                 return $('input[name=format]:checked').val();
             }
-            
+        
+            function getBitrate() {
+                return $('input[name=bitrate]:checked').val();
+            }
+        
             // disable conversion at start
             $('#convert').attr('disabled', 'true');
             

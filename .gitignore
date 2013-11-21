@@ -1,10 +1,12 @@
 # Object files
 *.o
 *.ko
+*.lo
 
 # Libraries
 *.lib
 *.a
+*.la
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -17,4 +19,30 @@
 *.out
 *.app
 
+# other
+*.bc
+*.log
+config.h
+config.status
+Makefile
+.libs
+.deps
+.dirstamp
 .DS_Store
+ffmpeg.js/dist
+ffmpeg.js/lame/lame.spec
+ffmpeg.js/lame/libtool
+ffmpeg.js/lame/stamp-h1
+ffmpeg.js/libfdk-aac/libtool
+ffmpeg.js/libogg/include/ogg/config_types.h
+ffmpeg.js/libogg/libogg.spec
+ffmpeg.js/libogg/libtool
+ffmpeg.js/libogg/src/test_bitwise
+ffmpeg.js/libogg/src/test_framing
+ffmpeg.js/libogg/stamp-h1
+ffmpeg.js/libvorbis/doc/Doxyfile
+ffmpeg.js/libvorbis/doc/doxygen-build.stamp
+ffmpeg.js/libvorbis/lib/test_sharedbook
+ffmpeg.js/libvorbis/libtool
+ffmpeg.js/libvorbis/libvorbis.spec
+ffmpeg.js/libvorbis/stamp-h1
